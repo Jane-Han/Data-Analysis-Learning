@@ -10,5 +10,65 @@ F \rightarrow F'=f, X_1...X_n i.i.d F
  交叉验证
  这里我们用的方法是缺一交叉验证方法。具体地，我们来给出一些表达式：
  \begin{displaymath}
- \hat{J(h)}=\int[\hat{f_n()x}^2]
+ \hat{J(h)}=\int [\hat{f_n()x}]^2dx-\fraction{2}{n}\Sigma_{i=1}^{n}\hat{f_{(-i)}}(x_i)
  \end{displaymath}
+其中，$\hat{J(h)}$为交叉验证得分，也就是我们所说的估计的风险。
+\begin{displaymath}
+ J(h)=\int \hat{f_n(x)}^2-2\int \hat{f_n(x)}f(x)dx
+ \end{displaymath}
+ 这里，$J(h)$为风险。
+ \begin{displaymath}
+ L(h)=\int [\hat{f_n(x)-f(x)}]^2dx=J(h)+\int f^2(x)dx
+ \end{displaymath}
+ 这里，$L(h)$是损失函数，而且我们可以看到，上式中的末项$\int f^2(x)dx$与参数$h$无关，接下来我们要选择光滑参数$h$，使得我们的风险估计最小。
+ 
+ 直方图
+ 我们给定假设，密度函数$f$在$[0,1]$区间上有支撑，我们可以将它等分成m个箱。
+ 图
+ 其中，$Y_j$为在$B_j$中的观测数目，$Y_j bolang B(m,p_j)$
+ 这里：
+\begin{displaymath}
+p_j=P(\fraction{j-1}{m} 小于等于 x 小于等于 \fraction{j}{m})=\int_{B_j}f(u)du 约等于 f(x)\dot h
+ \end{displaymath}
+ 其中$\hat{p_j}=\fraction{Y_j}{n}$是$p_j$的一个无偏估计，即满足：$E\hat{p_j}=p_j$
+ 下面我们来定义直方图估计：
+ \begin{displaymath}
+\hat{f_n(x)}=\Sigma_{j=1}^{m}I(x \in B_j)
+ \end{displaymath}
+ 下面我们来验证其渐近无偏：
+ 对于$x \in B_j$且$h \longrightarrow 0$时，
+ \begin{displaymath}
+E(\hat{f_n(x)})=E\fraction{\hat{p_j}}{h}=\fraction{p_j}{h}约等于 f(x)
+ \end{displaymath}
+ 下面我们给出两个定理
+ 定理一
+ 考虑固定的$x$和固定的$m$,并令$B_j$为包含$x$的箱，那么，
+ \begin{displaymath}
+V(\hat{f_n(x)})=\fraction{p_j(1-p_j)}{nh^2}
+ \end{displaymath}
+ 证明
+ 我们给出简单的证明
+ \begin{displaymath}
+V(\hat{f_n(x)})=V(\fraction{\hat{p_j}}{h})=\fraction{1}{h^2}V(\hat{p_j})=\fraction{1}{h^2}V(\fraction{Y_j}{n})=\fraction{1}{h^2n^2}np_j(1-p_j)=\fraction{p_j(1-p_j)}nh^2{}
+ \end{displaymath}
+ 定理二
+ 假定$f'$为绝对连续，且$\int |f'(u)|^2du < \infity$,那么：
+ \begin{displaymath}
+R(\hat{f_n},f)=\fraction{}{}
+ \end{displaymath}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
