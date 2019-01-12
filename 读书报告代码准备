@@ -41,7 +41,7 @@ p_j=P(\fraction{j-1}{m} 小于等于 x 小于等于 \fraction{j}{m})=\int_{B_j}f
 E(\hat{f_n(x)})=E\fraction{\hat{p_j}}{h}=\fraction{p_j}{h}约等于 f(x)
  \end{displaymath}
  下面我们给出两个定理
- 定理一
+ 定理
  考虑固定的$x$和固定的$m$,并令$B_j$为包含$x$的箱，那么，
  \begin{displaymath}
 V(\hat{f_n(x)})=\fraction{p_j(1-p_j)}{nh^2}
